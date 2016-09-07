@@ -52,6 +52,8 @@ class CounterViewController: UIViewController {
         else if sender.state == .ended || sender.state == .cancelled {
             self.timer?.invalidate()
             self.timer = nil
+            
+            self.minusButton.isHighlighted = false
         }
     }
     
@@ -77,6 +79,8 @@ class CounterViewController: UIViewController {
         self.counter = self.counter + 1
         self.numberLabel.text = String(self.counter)
         
+        self.plusButton.isHighlighted = true
+        
         self.toggleButtonsState()
     }
     
@@ -84,7 +88,10 @@ class CounterViewController: UIViewController {
         self.counter  = self.counter - 1
         self.numberLabel.text = String(self.counter)
         
+        self.minusButton.isHighlighted = true
+        
         self.toggleButtonsState()
+        
     }
     
     @objc fileprivate func processCounterWith(operator operation: String) {
@@ -101,6 +108,8 @@ class CounterViewController: UIViewController {
         else if sender.state == .ended || sender.state == .cancelled {
             self.timer?.invalidate()
             self.timer = nil
+            
+            self.plusButton.isHighlighted = false
         }
     }
     
