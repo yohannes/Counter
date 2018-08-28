@@ -14,7 +14,7 @@ Gif created with [Recordit](http://recordit.co)
 
 ## Installation Instructions
 
-1. Install [Xcode 8](https://developer.apple.com/xcode/)
+1. Install [Xcode](https://developer.apple.com/xcode/)
 2. Download [Counter source code](https://github.com/yoha/Counter/releases/latest)
 3. Open `Counter.xcodeproj` in Xcode
 4. Open Xcode's Preferences -> Accounts -> add your Apple ID
@@ -25,13 +25,13 @@ Gif created with [Recordit](http://recordit.co)
 ## Credits
 
 Icon used in this app:
-- [Counter](https://icons8.com/web-app/23044/counter#filled) by [Icons8](https://icons8.com)
+- [Counter](https://www.flaticon.com/free-icon/counter_209550 by [Freepik](https://freepik.com)
 
 ## License
 
 MIT License
 
-Copyright (c) 2017 Yohannes Wijaya. All respective rights reserved.  
+Copyright (c) 2018 Yohannes Wijaya. All respective rights reserved.  
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
