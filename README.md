@@ -25,7 +25,7 @@ Gif created with [Recordit](http://recordit.co)
 ## Credits
 
 Icon used in this app:
-- [Counter](https://www.flaticon.com/free-icon/counter_209550 by [Freepik](https://freepik.com)
+- [Counter](https://www.flaticon.com/free-icon/counter_209550) by [Freepik](https://freepik.com)
 
 ## License
 
