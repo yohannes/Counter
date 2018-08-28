@@ -12,6 +12,7 @@
 		65C2AA2E1D506AE800881F9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65C2AA2C1D506AE800881F9B /* Main.storyboard */; };
 		65C2AA301D506AE800881F9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65C2AA2F1D506AE800881F9B /* Assets.xcassets */; };
 		65C2AA331D506AE800881F9B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65C2AA311D506AE800881F9B /* LaunchScreen.storyboard */; };
+		65DE34952133E21900CAC0B3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65DE34942133E21900CAC0B3 /* AudioToolbox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		65C2AA2F1D506AE800881F9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		65C2AA321D506AE800881F9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		65C2AA341D506AE800881F9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65DE34942133E21900CAC0B3 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65DE34952133E21900CAC0B3 /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +43,7 @@
 			children = (
 				65C2AA271D506AE800881F9B /* Counter */,
 				65C2AA261D506AE800881F9B /* Products */,
+				65DE34932133E21900CAC0B3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +66,14 @@
 				65C2AA341D506AE800881F9B /* Info.plist */,
 			);
 			path = Counter;
+			sourceTree = "<group>";
+		};
+		65DE34932133E21900CAC0B3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				65DE34942133E21900CAC0B3 /* AudioToolbox.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

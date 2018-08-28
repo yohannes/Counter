@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AudioToolbox
 
 class CounterViewController: UIViewController {
     
@@ -20,6 +21,14 @@ class CounterViewController: UIViewController {
     var plusButtonTitle: String!
     var minusButtonTitle: String!
     
+    var tapticLevel = UIDevice.current.value(forKey: "_feedbackSupportLevel") as! Int
+    
+    enum Taptic: UInt32 {
+        case Peek = 1519
+        case Pop = 1520
+        case Nope = 1521
+    }
+    
     // MARK: - IBOutlet Properties
     
     @IBOutlet weak var numberLabel: UILabel!
@@ -31,18 +40,30 @@ class CounterViewController: UIViewController {
     
     @IBAction func plusButtonDidTouch(_ sender: UIButton) {
         self.processCounterWith(operator: self.plusButtonTitle)
+        vibrateDevice(for6s: .Peek)
     }
     
     @IBAction func minusButtonDidTouch(_ sender: UIButton) {
         self.processCounterWith(operator: self.minusButtonTitle)
+        vibrateDevice(for6s: .Pop)
     }
     
     @IBAction func resetButtonDidTouch(_ sender: UILabel) {
-        self.numberLabel.text = "0"
-        self.counter = 0
-        
-        self.plusButton.isEnabled = true
-        self.minusButton.isEnabled = true
+        vibrateDevice(for6s: .Nope)
+        let confirmResetAlertController = UIAlertController(title: "WARNING",
+                                                     message: "Are you sure you want to reset?", preferredStyle: .alert)
+        let resetAlertAction = UIAlertAction(title: "Reset",
+                                        style: .destructive) { (_) in
+                                            self.numberLabel.text = "0"
+                                            self.counter = 0
+                                            
+                                            self.plusButton.isEnabled = true
+                                            self.minusButton.isEnabled = true
+        }
+        let cancelAlertAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        confirmResetAlertController.addAction(resetAlertAction)
+        confirmResetAlertController.addAction(cancelAlertAction)
+        self.present(confirmResetAlertController, animated: true, completion: nil)
     }
     
     @IBAction func minusButtonDidLongPress(_ sender: UILongPressGestureRecognizer) {
@@ -125,6 +146,19 @@ class CounterViewController: UIViewController {
         else {
             self.plusButton.isEnabled = true
             self.minusButton.isEnabled = true
+        }
+    }
+    
+    fileprivate func vibrateDevice(forHigherThan6s: UIImpactFeedbackStyle = .medium, for6s: Taptic, for lowerThan6s: SystemSoundID = kSystemSoundID_Vibrate) {
+        switch tapticLevel {
+        case 2:
+            let generator = UIImpactFeedbackGenerator(style: forHigherThan6s)
+            generator.prepare()
+            generator.impactOccurred()
+        case 1:
+            AudioServicesPlaySystemSound(for6s.rawValue)
+        default:
+            AudioServicesPlaySystemSound(lowerThan6s)
         }
     }
 }
