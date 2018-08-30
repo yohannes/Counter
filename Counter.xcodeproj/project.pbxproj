@@ -13,6 +13,7 @@
 		65C2AA301D506AE800881F9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65C2AA2F1D506AE800881F9B /* Assets.xcassets */; };
 		65C2AA331D506AE800881F9B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65C2AA311D506AE800881F9B /* LaunchScreen.storyboard */; };
 		65DE34952133E21900CAC0B3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65DE34942133E21900CAC0B3 /* AudioToolbox.framework */; };
+		65DE34972135450C00CAC0B3 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DE34962135450C00CAC0B3 /* Protocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		65C2AA321D506AE800881F9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		65C2AA341D506AE800881F9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		65DE34942133E21900CAC0B3 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		65DE34962135450C00CAC0B3 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			children = (
 				65C2AA281D506AE800881F9B /* AppDelegate.swift */,
 				658809E91D50879B00B370C2 /* CounterViewController.swift */,
+				65DE34962135450C00CAC0B3 /* Protocol.swift */,
 				65C2AA2C1D506AE800881F9B /* Main.storyboard */,
 				65C2AA2F1D506AE800881F9B /* Assets.xcassets */,
 				65C2AA311D506AE800881F9B /* LaunchScreen.storyboard */,
@@ -151,6 +154,7 @@
 			files = (
 				658809EA1D50879B00B370C2 /* CounterViewController.swift in Sources */,
 				65C2AA291D506AE800881F9B /* AppDelegate.swift in Sources */,
+				65DE34972135450C00CAC0B3 /* Protocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

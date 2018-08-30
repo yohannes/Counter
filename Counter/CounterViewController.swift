@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import AudioToolbox
 
 class CounterViewController: UIViewController {
     
@@ -21,14 +20,6 @@ class CounterViewController: UIViewController {
     var plusButtonTitle: String!
     var minusButtonTitle: String!
     
-    var tapticLevel = UIDevice.current.value(forKey: "_feedbackSupportLevel") as! Int
-    
-    enum Taptic: UInt32 {
-        case Peek = 1519
-        case Pop = 1520
-        case Nope = 1521
-    }
-    
     // MARK: - IBOutlet Properties
     
     @IBOutlet weak var numberLabel: UILabel!
@@ -40,7 +31,7 @@ class CounterViewController: UIViewController {
     
     @IBAction func plusButtonDidTouch(_ sender: UIButton) {
         self.processCounterWith(operator: self.plusButtonTitle)
-        vibrateDevice(for6s: .Peek)
+        vibrateDevice()
     }
     
     @IBAction func minusButtonDidTouch(_ sender: UIButton) {
@@ -148,17 +139,6 @@ class CounterViewController: UIViewController {
             self.minusButton.isEnabled = true
         }
     }
-    
-    fileprivate func vibrateDevice(forHigherThan6s: UIImpactFeedbackStyle = .medium, for6s: Taptic, for lowerThan6s: SystemSoundID = kSystemSoundID_Vibrate) {
-        switch tapticLevel {
-        case 2:
-            let generator = UIImpactFeedbackGenerator(style: forHigherThan6s)
-            generator.prepare()
-            generator.impactOccurred()
-        case 1:
-            AudioServicesPlaySystemSound(for6s.rawValue)
-        default:
-            AudioServicesPlaySystemSound(lowerThan6s)
-        }
-    }
 }
+
+extension CounterViewController: Vibratable {}
