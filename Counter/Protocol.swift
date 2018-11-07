@@ -10,9 +10,9 @@ import UIKit
 import AudioToolbox
 
 enum Taptic: UInt32 {
-    case Peek = 1519
-    case Pop = 1520
-    case Nope = 1521
+    case peek = 1519
+    case pop = 1520
+    case nope = 1521
 }
 
 protocol Vibratable {
@@ -22,9 +22,13 @@ protocol Vibratable {
 
 extension Vibratable {
     var tapticLevel: Int {
-        return UIDevice.current.value(forKey: "_feedbackSupportLevel") as! Int
+        if let validDeviceValue = UIDevice.current.value(forKey: "_feedbackSupportLevel") as? Int {
+            return validDeviceValue
+        } else {
+            fatalError("Invalid iOS Device")
+        }
     }
-    func vibrateDevice(forHigherThan6s: UIImpactFeedbackStyle = .medium, for6s: Taptic = .Peek, lowerThan6s: SystemSoundID = kSystemSoundID_Vibrate) {
+    func vibrateDevice(forHigherThan6s: UIImpactFeedbackStyle = .medium, for6s: Taptic = .peek, lowerThan6s: SystemSoundID = kSystemSoundID_Vibrate) {
         switch tapticLevel {
         case 2:
             let generator = UIImpactFeedbackGenerator(style: forHigherThan6s)

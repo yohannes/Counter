@@ -36,11 +36,11 @@ class CounterViewController: UIViewController {
     
     @IBAction func minusButtonDidTouch(_ sender: UIButton) {
         self.processCounterWith(operator: self.minusButtonTitle)
-        vibrateDevice(for6s: .Pop)
+        vibrateDevice(for6s: .pop)
     }
     
     @IBAction func resetButtonDidTouch(_ sender: UILabel) {
-        vibrateDevice(for6s: .Nope)
+        vibrateDevice(for6s: .nope)
         let confirmResetAlertController = UIAlertController(title: "WARNING",
                                                      message: "Are you sure you want to reset?", preferredStyle: .alert)
         let resetAlertAction = UIAlertAction(title: "Reset",
@@ -60,8 +60,7 @@ class CounterViewController: UIViewController {
     @IBAction func minusButtonDidLongPress(_ sender: UILongPressGestureRecognizer) {
         if sender.state == UIGestureRecognizerState.began {
             self.timer = Timer.scheduledTimer(timeInterval: self.firingInterval, target: self, selector: #selector(CounterViewController.decrementCounter), userInfo: nil, repeats: true)
-        }
-        else if sender.state == .ended || sender.state == .cancelled {
+        } else if sender.state == .ended || sender.state == .cancelled {
             self.timer?.invalidate()
             self.timer = nil
             
@@ -88,7 +87,7 @@ class CounterViewController: UIViewController {
     // MARK: - Helper Methods
     
     @objc fileprivate func incrementCounter() {
-        self.counter = self.counter + 1
+        self.counter += 1
         self.numberLabel.text = String(self.counter)
         
         self.plusButton.isHighlighted = true
@@ -97,7 +96,7 @@ class CounterViewController: UIViewController {
     }
     
     @objc fileprivate func decrementCounter() {
-        self.counter  = self.counter - 1
+        self.counter -= 1
         self.numberLabel.text = String(self.counter)
         
         self.minusButton.isHighlighted = true
@@ -116,8 +115,7 @@ class CounterViewController: UIViewController {
     @objc fileprivate func plusButtonDidLongPress(sender: UILongPressGestureRecognizer) {
         if sender.state == UIGestureRecognizerState.began {
             self.timer = Timer.scheduledTimer(timeInterval: self.firingInterval, target: self, selector: #selector(CounterViewController.incrementCounter), userInfo: nil, repeats: true)
-        }
-        else if sender.state == .ended || sender.state == .cancelled {
+        } else if sender.state == .ended || sender.state == .cancelled {
             self.timer?.invalidate()
             self.timer = nil
             
@@ -129,12 +127,10 @@ class CounterViewController: UIViewController {
         if self.counter >= 999 {
             self.plusButton.isEnabled = false
             self.minusButton.isEnabled = true
-        }
-        else if self.counter <= -999 {
+        } else if self.counter <= -999 {
             self.minusButton.isEnabled = false
             self.plusButton.isEnabled = true
-        }
-        else {
+        } else {
             self.plusButton.isEnabled = true
             self.minusButton.isEnabled = true
         }
